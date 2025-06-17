@@ -1,0 +1,1606 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RS Broo - Tecnología y Soluciones | Servicios Técnicos</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --terracotta: #E2725B;
+            --petroleum: #006266;
+            --dark-blue: #1B4F72;
+            --light-gray: #F5F5F5;
+            --medium-gray: #E0E0E0;
+            --text-dark: #333333;
+            --text-light: #FFFFFF;
+            --accent: #3498DB;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-color: var(--light-gray);
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--terracotta), #d15e45);
+            padding: 20px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+            z-index: 2;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-img {
+            width: 100px;
+            height: 100px;
+            object-fit: contain;
+            border: 3px solid white;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            background-color: #fff;
+            padding: 5px;
+            border-radius: 0;
+        }
+
+        .logo-img:hover {
+            transform: rotate(5deg) scale(1.05);
+        }
+
+        .brand-text {
+            color: var(--text-light);
+            margin-left: 15px;
+        }
+
+        .brand-text h1 {
+            font-size: 1.8rem;
+            line-height: 1.2;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .brand-text p {
+            font-size: 1rem;
+            opacity: 0.9;
+            margin-top: 5px;
+        }
+
+        .tagline {
+            text-align: center;
+            padding: 60px 0 40px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .tagline h2 {
+            font-size: 2.8rem;
+            color: var(--text-light);
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+
+        .tagline p {
+            font-size: 1.4rem;
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+
+        /* Navigation */
+        nav {
+            position: relative;
+            z-index: 2;
+        }
+
+        .menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-light);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 25px;
+        }
+
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
+            padding: 8px 15px;
+            border-radius: 4px;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--text-light);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Main Sections */
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .section-title h2 {
+            font-size: 2.2rem;
+            color: var(--dark-blue);
+            display: inline-block;
+            padding: 0 20px;
+            background-color: var(--light-gray);
+            position: relative;
+            z-index: 2;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--medium-gray);
+            z-index: 1;
+        }
+
+        /* Catalog Section - Más compacta */
+        .catalog {
+            background-color: var(--text-light);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .service-card {
+            background: var(--text-light);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .service-card.animate {
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--terracotta);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: var(--transition);
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-icon {
+            height: 130px;
+            background: var(--light-gray);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: var(--terracotta);
+        }
+
+        .service-content {
+            padding: 20px;
+        }
+
+        .service-content h3 {
+            color: var(--dark-blue);
+            margin-bottom: 12px;
+            font-size: 1.3rem;
+        }
+
+        .service-content ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .service-content li {
+            margin-bottom: 6px;
+            padding-left: 22px;
+            position: relative;
+            font-size: 0.95rem;
+        }
+
+        .service-content li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--terracotta);
+            font-weight: bold;
+        }
+
+        /* Gallery Section */
+        .gallery {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            position: relative;
+        }
+
+        .collage-container {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            cursor: pointer;
+            transition: var(--transition);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .collage-container:hover {
+            transform: scale(1.02);
+        }
+
+        .collage {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(3, 150px);
+            gap: 10px;
+        }
+
+        .collage-item {
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            transition: var(--transition);
+            filter: grayscale(20%);
+        }
+
+        .collage-item:hover {
+            filter: grayscale(0);
+            transform: scale(1.05);
+        }
+
+        .collage-item::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+        }
+
+        .collage-item:hover::after {
+            background: rgba(0, 0, 0, 0);
+        }
+
+        .collage-item:nth-child(1) {
+            grid-column: 1 / 3;
+            grid-row: 1 / 3;
+        }
+
+        .collage-item:nth-child(2) {
+            grid-column: 3 / 4;
+            grid-row: 1 / 2;
+        }
+
+        .collage-item:nth-child(3) {
+            grid-column: 4 / 5;
+            grid-row: 1 / 2;
+        }
+
+        .collage-item:nth-child(4) {
+            grid-column: 3 / 5;
+            grid-row: 2 / 3;
+        }
+
+        .collage-item:nth-child(5) {
+            grid-column: 1 / 2;
+            grid-row: 3 / 4;
+        }
+
+        .collage-item:nth-child(6) {
+            grid-column: 2 / 3;
+            grid-row: 3 / 4;
+        }
+
+        .collage-item:nth-child(7) {
+            grid-column: 3 / 5;
+            grid-row: 3 / 4;
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            opacity: 0;
+            transition: var(--transition;
+        }
+
+        .collage-container:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        /* Contact Section */
+        .contact {
+            background-color: var(--text-light);
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .contact-card {
+            background: var(--light-gray);
+            padding: 25px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: var(--shadow);
+        }
+
+        .contact-card h3 {
+            color: var(--dark-blue);
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        .contact-details {
+            list-style: none;
+        }
+
+        .contact-details li {
+            margin-bottom: 12px;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .contact-details i {
+            color: var(--terracotta);
+            font-size: 1.2rem;
+            min-width: 30px;
+            padding-top: 4px;
+        }
+
+        .social-links {
+            display: flex;
+            margin-top: 15px;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            background: var(--dark-blue);
+            color: white;
+            border-radius: 50%;
+            margin-right: 15px;
+            transition: var(--transition);
+            font-size: 1.2rem;
+            text-decoration: none;
+        }
+
+        .social-links a:hover {
+            transform: translateY(-5px);
+            background: var(--terracotta);
+        }
+
+        .whatsapp-contact-box {
+            background: var(--light-gray);
+            padding: 25px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .whatsapp-contact-box h3 {
+            color: var(--dark-blue);
+            margin-bottom: 15px;
+        }
+
+        .whatsapp-contact-box p {
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: var(--terracotta);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+            text-align: center;
+        }
+
+        .btn:hover {
+            background: #d15e45;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(226, 114, 91, 0.3);
+        }
+
+        .whatsapp-btn {
+            background: #25D366;
+        }
+
+        .whatsapp-btn:hover {
+            background: #128C7E;
+        }
+
+        /* Map Section */
+        .map-container {
+            margin-top: 20px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            height: 400px;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--petroleum);
+            color: var(--text-light);
+            padding: 60px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .footer-logo {
+            margin-bottom: 20px;
+        }
+
+        .footer-about h3,
+        .footer-links h3,
+        .footer-map h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-about h3::after,
+        .footer-links h3::after,
+        .footer-map h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--terracotta);
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            transition: var(--transition);
+            display: inline-block;
+        }
+
+        .footer-links a:hover {
+            color: var(--terracotta);
+            transform: translateX(5px);
+        }
+
+        .footer-contact p {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .footer-contact i {
+            margin-right: 10px;
+            color: var(--terracotta);
+            min-width: 20px;
+        }
+
+        .footer-map .map-container {
+            height: 250px;
+            margin-top: 15px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        .footer-bottom p {
+            max-width: 800px;
+            margin: 0 auto 10px;
+            font-style: italic;
+        }
+
+        #current-year {
+            font-weight: bold;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.95);
+            z-index: 1000;
+            overflow-y: auto;
+            padding: 20px;
+        }
+
+        .modal-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .modal-img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 8px;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .modal-img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        .close-modal {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            color: white;
+            font-size: 30px;
+            cursor: pointer;
+            background: var(--terracotta);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1001;
+        }
+
+        /* Animation Effects */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .delay-1 { animation-delay: 0.1s; }
+        .delay-2 { animation-delay: 0.2s; }
+        .delay-3 { animation-delay: 0.3s; }
+        .delay-4 { animation-delay: 0.4s; }
+        .delay-5 { animation-delay: 0.5s; }
+
+        /* WhatsApp Buzón */
+        #whatsapp-buzon {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            cursor: pointer;
+            z-index: 999;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        #whatsapp-buzon:hover {
+            transform: scale(1.1);
+        }
+
+        #whatsapp-form {
+            display: none;
+            position: fixed;
+            bottom: 100px;
+            right: 30px;
+            width: 320px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            z-index: 1000;
+            padding: 20px;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        #whatsapp-form h3 {
+            color: #075E54;
+            margin-bottom: 15px;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        #whatsapp-form input,
+        #whatsapp-form textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        #whatsapp-form textarea {
+            height: 100px;
+            resize: vertical;
+        }
+
+        #cerrar-form {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: none;
+            border: none;
+            font-size: 20px;
+            cursor: pointer;
+            color: #666;
+        }
+
+        #enviar-wa {
+            background: #25D366;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 5px;
+            width: 100%;
+            font-weight: 600;
+            cursor: pointer;
+            font-family: 'Montserrat', sans-serif;
+            transition: var(--transition);
+        }
+
+        #enviar-wa:hover {
+            background: #128C7E;
+        }
+
+        /* Contador de visitas y botón de like */
+        .header-stats {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            z-index: 3;
+        }
+
+        .stat-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            color: white;
+            background: rgba(0,0,0,0.2);
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+
+        .like-btn {
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: transform 0.3s;
+        }
+
+        .like-btn.liked {
+            color: #ff4081;
+        }
+
+        .like-btn:hover {
+            transform: scale(1.2);
+        }
+
+        /* Sección de Reseñas */
+        .reviews {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            padding: 80px 0;
+        }
+
+        .reviews-container {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 40px;
+        }
+
+        .review-form {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+        }
+
+        .review-form h3 {
+            margin-bottom: 20px;
+            color: var(--dark-blue);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .form-group textarea {
+            height: 150px;
+            resize: vertical;
+        }
+
+        .form-group input[type="file"] {
+            padding: 8px;
+        }
+
+        .reviews-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .review-card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+        }
+
+        .review-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .review-avatar {
+            width: 50px;
+            height: 50px;
+            background: var(--light-gray);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-size: 1.5rem;
+            color: var(--terracotta);
+        }
+
+        .review-name {
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .review-date {
+            font-size: 0.8rem;
+            color: #777;
+        }
+
+        .review-content p {
+            margin-bottom: 15px;
+        }
+
+        .review-image {
+            width: 100%;
+            border-radius: 8px;
+            margin-top: 10px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .tagline h2 {
+                font-size: 2.3rem;
+            }
+            
+            .tagline p {
+                font-size: 1.2rem;
+            }
+            
+            .reviews-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .menu-btn {
+                display: block;
+            }
+            
+            .nav-links {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--terracotta);
+                flex-direction: column;
+                align-items: center;
+                padding: 20px 0;
+                clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+                transition: var(--transition);
+            }
+            
+            .nav-links.active {
+                clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+            }
+            
+            .nav-links li {
+                margin: 10px 0;
+            }
+            
+            .tagline {
+                padding: 40px 0 30px;
+            }
+            
+            .tagline h2 {
+                font-size: 2rem;
+            }
+            
+            .tagline p {
+                font-size: 1.1rem;
+            }
+            
+            section {
+                padding: 60px 0;
+            }
+
+            .collage {
+                grid-template-rows: repeat(3, 120px);
+            }
+            
+            .modal-img {
+                height: 200px;
+            }
+
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-map {
+                grid-column: 1 / -1;
+            }
+
+            .footer-map .map-container {
+                height: 200px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .logo-container {
+                margin-bottom: 20px;
+                justify-content: center;
+            }
+            
+            .brand-text h1 {
+                font-size: 1.5rem;
+            }
+            
+            .tagline h2 {
+                font-size: 1.8rem;
+            }
+            
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+
+            .collage {
+                grid-template-rows: repeat(3, 100px);
+            }
+            
+            .modal-content {
+                grid-template-columns: 1fr;
+            }
+
+            #whatsapp-form {
+                width: 90%;
+                right: 5%;
+                left: 5%;
+            }
+
+            .header-stats {
+                position: static;
+                margin-top: 15px;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header id="inicio">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-container">
+                    <!-- Logo cuadrado -->
+                    <div class="logo-img" style="background: linear-gradient(45deg, #1B4F72, #3498DB); display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 1.2rem;">
+                        RS BROO
+                    </div>
+                    <div class="brand-text">
+                        <h1>RS Broo</h1>
+                        <p>Tecnología y Soluciones</p>
+                    </div>
+                </div>
+                
+                <nav>
+                    <button class="menu-btn" id="menuToggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <ul class="nav-links" id="navLinks">
+                        <li><a href="#inicio">Inicio</a></li>
+                        <li><a href="#catalogo">Catálogo</a></li>
+                        <li><a href="#galeria">Galería</a></li>
+                        <li><a href="#contacto">Contacto</a></li>
+                        <li><a href="#reseñas">Reseñas</a></li>
+                    </ul>
+                </nav>
+            </div>
+            
+            <!-- Contador de visitas y botón de like -->
+            <div class="header-stats">
+                <div class="stat-item">
+                    <i class="fas fa-eye"></i>
+                    <span id="visitas">0</span>
+                </div>
+                <button class="like-btn" id="likeBtn">
+                    <i class="far fa-heart"></i>
+                </button>
+            </div>
+            
+            <div class="tagline">
+                <h2>VERSATILIDAD INTEGRAL</h2>
+                <p>El servicio y la atención que necesitas con la garantía que te mereces</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Catalog Section -->
+    <section class="catalog" id="catalogo">
+        <div class="container">
+            <div class="section-title">
+                <h2>Nuestros Servicios</h2>
+            </div>
+            
+            <div class="services-grid" id="services-container">
+                <!-- Servicio Técnico -->
+                <div class="service-card delay-1">
+                    <div class="service-icon">
+                        <i class="fas fa-laptop"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Servicio Técnico</h3>
+                        <ul>
+                            <li>Reparación y Mantenimiento de Computadoras</li>
+                            <li>Notebooks, Netbooks, CPU</li>
+                            <li>Laptops y PC de Escritorio</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Reparación de Celulares -->
+                <div class="service-card delay-2">
+                    <div class="service-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Reparación de Celulares</h3>
+                        <ul>
+                            <li>Cambio de Pantallas y Baterías</li>
+                            <li>Reparación de Pin de Carga</li>
+                            <li>Restauración de Software</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Ventas de Insumos -->
+                <div class="service-card delay-3">
+                    <div class="service-icon">
+                        <i class="fas fa-desktop"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Ventas de Insumos</h3>
+                        <ul>
+                            <li>Todo en Electrónica para el Hogar</li>
+                            <li>Equipos para Estudio y Trabajo</li>
+                            <li>Accesorios y Componentes</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Cámaras de Seguridad -->
+                <div class="service-card delay-4">
+                    <div class="service-icon">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Cámaras de Seguridad</h3>
+                        <ul>
+                            <li>Sistemas de Video Vigilancia</li>
+                            <li>Circuito Cerrado e Inalámbrico</li>
+                            <li>Detección de Movimiento y Visión Nocturna</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Lonas y Vinilos -->
+                <div class="service-card delay-5">
+                    <div class="service-icon">
+                        <i class="fas fa-print"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Lonas y Vinilos</h3>
+                        <ul>
+                            <li>Impresiones de Lonas y Vanner</li>
+                            <li>Diseño Comercial Profesional</li>
+                            <li>Revestimientos en General</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery" id="galeria">
+        <div class="container">
+            <div class="section-title">
+                <h2>Nuestro Trabajo</h2>
+            </div>
+            
+            <div class="collage-container" id="galleryTrigger">
+                <div class="collage">
+                    <div class="collage-item" style="background-image: url('assets/images/img1.webp')"></div>
+                    <div class="collage-item" style="background-image: url('assets/images/img2.webp')"></div>
+                    <div class="collage-item" style="background-image: url('assets/images/img3.webp')"></div>
+                    <div class="collage-item" style="background-image: url('assets/images/img4.webp')"></div>
+                    <div class="collage-item" style="background-image: url('assets/images/img5.webp')"></div>
+                    <div class="collage-item" style="background-image: url('assets/images/img6.webp')"></div>
+                    <div class="collage-item" style="background-image: url('assets/images/img7.webp')"></div>
+                </div>
+                <div class="gallery-overlay">
+                    <div>
+                        <i class="fas fa-expand-alt fa-2x"></i>
+                        <p>Ver Galería Completa</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contacto">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contáctanos</h2>
+            </div>
+            
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="contact-card">
+                        <h3>Información de Contacto</h3>
+                        <ul class="contact-details">
+                            <li>
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Acevedo 3568, Posadas, Misiones</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-phone-alt"></i>
+                                <span>+54 9 376 4 144012</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-envelope"></i>
+                                <span>brooposadas@gmail.com</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-clock"></i>
+                                <span>Lunes a Viernes: 8:00 - 18:00<br>Sábados: 9:00 - 13:00</span>
+                            </li>
+                        </ul>
+                        
+                        <div class="social-links">
+                            <a href="https://www.facebook.com/share/12DiWC5Xynu/" target="_blank">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="https://www.instagram.com/broomisiones?igsh=YXRzdHVuYjNpYzkw" target="_blank">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="https://wa.me/5493764144012" target="_blank">
+                                <i class="fab fa-whatsapp"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-card">
+                        <h3>¿Por qué elegirnos?</h3>
+                        <p>En RS Broo nos comprometemos a ofrecer soluciones integrales con atención personalizada, garantía en todos nuestros servicios y precios competitivos.</p>
+                    </div>
+                </div>
+                
+                <!-- Buzón WhatsApp -->
+                <div class="whatsapp-contact-box">
+                    <h3>¿Necesitas ayuda inmediata?</h3>
+                    <p>Contáctanos directamente por WhatsApp</p>
+                    <a href="https://wa.me/5493764144012" class="btn whatsapp-btn">
+                        <i class="fab fa-whatsapp"></i> Enviar WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reseñas Section -->
+    <section class="reviews" id="reseñas">
+        <div class="container">
+            <div class="section-title">
+                <h2>Reseñas de Clientes</h2>
+                <p>Comparte tu experiencia con nuestros servicios</p>
+            </div>
+
+            <div class="reviews-container">
+                <div class="review-form">
+                    <h3>Envía tu reseña</h3>
+                    <form id="reviewForm">
+                        <div class="form-group">
+                            <input type="text" id="nombre" placeholder="Tu nombre" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="comentario" placeholder="Tu comentario" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <input type="file" id="imagen" accept="image/*">
+                        </div>
+                        <button type="submit" class="btn">Enviar Reseña</button>
+                    </form>
+                </div>
+
+                <div id="reviewsList" class="reviews-list">
+                    <!-- Las reseñas se cargarán aquí con JavaScript -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <div class="footer-logo">
+                        <div class="logo-container">
+                            <div class="logo-img" style="background: linear-gradient(45deg, #1B4F72, #3498DB); display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 1.2rem; width: 70px; height: 70px;">
+                                RS BROO
+                            </div>
+                            <div class="brand-text">
+                                <h1>RS Broo</h1>
+                            </div>
+                        </div>
+                    </div>
+                    <p>RS Broo es tu aliado en soluciones tecnológicas en Posadas, Misiones. Ofrecemos servicios técnicos especializados, venta de productos electrónicos y soluciones de seguridad con la más alta calidad.</p>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Enlaces Rápidos</h3>
+                    <ul>
+                        <li><a href="#inicio">Inicio</a></li>
+                        <li><a href="#catalogo">Catálogo</a></li>
+                        <li><a href="#galeria">Galería</a></li>
+                        <li><a href="#contacto">Contacto</a></li>
+                        <li><a href="#reseñas">Reseñas</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Mapa en el Footer -->
+                <div class="footer-map">
+                    <h3>Ubicación</h3>
+                    <div class="map-container">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3540.2428813546637!2d-55.89637872434288!3d-27.36285161283515!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9457be664d0a03c9%3A0x1a5d6f5a0e3b5e1f!2sAcevedo%203568%2C%20Posadas%2C%20Misiones!5e0!3m2!1ses!2sar!4v1620000000000!5m2!1ses!2sar" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>Gracias por confiar en RS Broo para todas tus necesidades tecnológicas. Estamos comprometidos a ofrecerte soluciones integrales con la más alta calidad y servicio personalizado.</p>
+                <p>&copy; <span id="current-year"></span> RS Broo - Todos los derechos reservados. | Versatilidad Integral en Servicios Técnicos</p>
+                <p>Confía en profesionales que valoran tu satisfacción y seguridad.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Gallery Modal -->
+    <div class="modal" id="galleryModal">
+        <div class="close-modal" id="closeModal">&times;</div>
+        <div class="modal-content" id="modalContent">
+            <!-- Las imágenes se cargan dinámicamente -->
+        </div>
+    </div>
+
+    <!-- WhatsApp Buzón Flotante -->
+    <div id="whatsapp-buzon">
+        <i class="fab fa-whatsapp"></i>
+    </div>
+
+    <!-- WhatsApp Form -->
+    <div id="whatsapp-form">
+        <button id="cerrar-form">&times;</button>
+        <h3>Contáctanos por WhatsApp</h3>
+        <input type="text" id="nombre-wa" placeholder="Tu nombre">
+        <input type="tel" id="numero-wa" placeholder="Ej: 5493764123456">
+        <textarea id="mensaje-wa" placeholder="Tu consulta o pedido"></textarea>
+        <button id="enviar-wa">Enviar Mensaje</button>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Año actual en footer
+            document.getElementById('current-year').textContent = new Date().getFullYear();
+            
+            // Menú móvil
+            const menuToggle = document.getElementById('menuToggle');
+            const navLinks = document.getElementById('navLinks');
+            
+            menuToggle.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+            });
+            
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.addEventListener('click', () => {
+                    navLinks.classList.remove('active');
+                });
+            });
+
+            // Galería con imágenes locales
+            const galleryTrigger = document.getElementById('galleryTrigger');
+            const galleryModal = document.getElementById('galleryModal');
+            const closeModal = document.getElementById('closeModal');
+            const modalContent = document.getElementById('modalContent');
+            
+            // Cargar imágenes locales
+            const cargarImagenes = () => {
+                // Limpiar modal
+                modalContent.innerHTML = '';
+                
+                // Cargar 15 imágenes
+                for (let i = 1; i <= 15; i++) {
+                    const img = document.createElement('img');
+                    img.src = `assets/images/img${i}.webp`;
+                    img.alt = `Trabajo RS Broo ${i}`;
+                    img.className = 'modal-img';
+                    modalContent.appendChild(img);
+                }
+            };
+            
+            galleryTrigger.addEventListener('click', () => {
+                cargarImagenes();
+                galleryModal.style.display = 'block';
+                document.body.style.overflow = 'hidden';
+            });
+            
+            closeModal.addEventListener('click', () => {
+                galleryModal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            });
+            
+            window.addEventListener('click', (e) => {
+                if (e.target === galleryModal) {
+                    galleryModal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                }
+            });
+
+            // WhatsApp
+            const whatsappBoton = document.getElementById('whatsapp-buzon');
+            const whatsappForm = document.getElementById('whatsapp-form');
+            const cerrarForm = document.getElementById('cerrar-form');
+            const enviarWhatsapp = document.getElementById('enviar-wa');
+            
+            whatsappBoton.addEventListener('click', () => {
+                whatsappForm.style.display = 'block';
+            });
+            
+            cerrarForm.addEventListener('click', () => {
+                whatsappForm.style.display = 'none';
+            });
+            
+            enviarWhatsapp.addEventListener('click', () => {
+                const nombre = document.getElementById('nombre-wa').value;
+                const numero = document.getElementById('numero-wa').value;
+                const mensaje = document.getElementById('mensaje-wa').value;
+                
+                if (!nombre || !numero || !mensaje) {
+                    alert('Por favor completa todos los campos');
+                    return;
+                }
+                
+                // Aquí iría la lógica para enviar a Google Apps Script
+                alert('¡Mensaje enviado con éxito! Te contactaremos pronto por WhatsApp.');
+                
+                // Limpiar y cerrar
+                document.getElementById('nombre-wa').value = '';
+                document.getElementById('numero-wa').value = '';
+                document.getElementById('mensaje-wa').value = '';
+                whatsappForm.style.display = 'none';
+            });
+
+            // Animaciones al aparecer
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate');
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            document.querySelectorAll('.service-card').forEach(card => {
+                observer.observe(card);
+            });
+
+            // Contador de visitas
+            let visitas = localStorage.getItem('visitas');
+            if (!visitas) {
+                visitas = 0;
+            }
+            visitas++;
+            localStorage.setItem('visitas', visitas);
+            document.getElementById('visitas').textContent = visitas;
+
+            // Botón de like
+            const likeBtn = document.getElementById('likeBtn');
+            const liked = localStorage.getItem('liked') === 'true';
+            if (liked) {
+                likeBtn.classList.add('liked');
+                likeBtn.innerHTML = '<i class="fas fa-heart"></i>';
+            }
+
+            likeBtn.addEventListener('click', () => {
+                if (likeBtn.classList.contains('liked')) {
+                    likeBtn.classList.remove('liked');
+                    likeBtn.innerHTML = '<i class="far fa-heart"></i>';
+                    localStorage.setItem('liked', 'false');
+                } else {
+                    likeBtn.classList.add('liked');
+                    likeBtn.innerHTML = '<i class="fas fa-heart"></i>';
+                    localStorage.setItem('liked', 'true');
+                }
+            });
+
+            // Sistema de reseñas
+            const reviewForm = document.getElementById('reviewForm');
+            const reviewsList = document.getElementById('reviewsList');
+            
+            // Cargar reseñas existentes
+            cargarReseñas();
+            
+            reviewForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                
+                const nombre = document.getElementById('nombre').value;
+                const comentario = document.getElementById('comentario').value;
+                const imagenInput = document.getElementById('imagen');
+                const imagenFile = imagenInput.files[0];
+                
+                if (!nombre || !comentario) {
+                    alert('Por favor completa los campos obligatorios');
+                    return;
+                }
+                
+                let imagen = null;
+                if (imagenFile) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        imagen = e.target.result;
+                        guardarReseña(nombre, comentario, imagen);
+                    };
+                    reader.readAsDataURL(imagenFile);
+                } else {
+                    guardarReseña(nombre, comentario, null);
+                }
+            });
+            
+            function guardarReseña(nombre, comentario, imagen) {
+                const reseña = {
+                    id: Date.now(),
+                    nombre,
+                    comentario,
+                    imagen,
+                    fecha: new Date().toISOString()
+                };
+                
+                // Guardar en localStorage
+                let reseñas = JSON.parse(localStorage.getItem('reseñas') || '[]');
+                reseñas.push(reseña);
+                localStorage.setItem('reseñas', JSON.stringify(reseñas));
+                
+                // Limpiar formulario
+                reviewForm.reset();
+                // Recargar lista
+                cargarReseñas();
+                alert('¡Gracias por tu reseña!');
+            }
+            
+            function cargarReseñas() {
+                reviewsList.innerHTML = '';
+                
+                const reseñas = JSON.parse(localStorage.getItem('reseñas') || '[]');
+                if (reseñas.length === 0) {
+                    reviewsList.innerHTML = '<p>No hay reseñas aún. ¡Sé el primero en opinar!</p>';
+                    return;
+                }
+                
+                reseñas.forEach(reseña => {
+                    const reviewCard = document.createElement('div');
+                    reviewCard.className = 'review-card';
+                    
+                    const fecha = new Date(reseña.fecha).toLocaleDateString('es-ES', {
+                        year: 'numeric',
+                        month: 'long',
+                        day: 'numeric'
+                    });
+                    
+                    reviewCard.innerHTML = `
+                        <div class="review-header">
+                            <div class="review-avatar">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div>
+                                <div class="review-name">${reseña.nombre}</div>
+                                <div class="review-date">${fecha}</div>
+                            </div>
+                        </div>
+                        <div class="review-content">
+                            <p>${reseña.comentario}</p>
+                        </div>
+                    `;
+                    
+                    if (reseña.imagen) {
+                        reviewCard.innerHTML += `<img src="${reseña.imagen}" alt="Imagen de reseña" class="review-image">`;
+                    }
+                    
+                    reviewsList.appendChild(reviewCard);
+                });
+            }
+        });
+    </script>
+</body>
+</html>

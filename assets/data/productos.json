@@ -1,0 +1,47 @@
+[
+    {
+        "nombre": "Servicio Técnico",
+        "icono": "fas fa-laptop",
+        "items": [
+            "Reparación y Mantenimiento de Computadoras",
+            "Notebooks, Netbooks, CPU",
+            "Laptops y PC de Escritorio"
+        ]
+    },
+    {
+        "nombre": "Reparación de Celulares",
+        "icono": "fas fa-mobile-alt",
+        "items": [
+            "Cambio de Pantallas y Baterías",
+            "Reparación de Pin de Carga",
+            "Restauración de Software"
+        ]
+    },
+    {
+        "nombre": "Ventas de Insumos",
+        "icono": "fas fa-desktop",
+        "items": [
+            "Todo en Electrónica para el Hogar",
+            "Equipos para Estudio y Trabajo",
+            "Accesorios y Componentes"
+        ]
+    },
+    {
+        "nombre": "Cámaras de Seguridad",
+        "icono": "fas fa-video",
+        "items": [
+            "Sistemas de Video Vigilancia",
+            "Circuito Cerrado e Inalámbrico",
+            "Detección de Movimiento y Visión Nocturna"
+        ]
+    },
+    {
+        "nombre": "Lonas y Vinilos",
+        "icono": "fas fa-print",
+        "items": [
+            "Impresiones de Lonas y Vanner",
+            "Diseño Comercial Profesional",
+            "Revestimientos en General"
+        ]
+    }
+]
