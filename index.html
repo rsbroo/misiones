@@ -3,670 +3,79 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Misiones - Servicios Profesionales</title>
+    <title>RS Broo - Versatilidad Integral | Servicios Técnicos</title>
+    <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        :root {
-            --primary: #2c3e50;
-            --secondary: #3498db;
-            --accent: #e74c3c;
-            --light: #ecf0f1;
-            --dark: #2c3e50;
-            --success: #2ecc71;
-            --whatsapp: #25D366;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        
-        body {
-            background-color: #f9f9f9;
-            color: #333;
-            line-height: 1.6;
-        }
-        
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 15px;
-        }
-        
-        /* Header Styles */
-        header {
-            background-color: var(--primary);
-            color: white;
-            padding: 1rem 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-        
-        .header-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .logo {
-            font-size: 1.8rem;
-            font-weight: bold;
-            display: flex;
-            align-items: center;
-        }
-        
-        .logo i {
-            color: var(--secondary);
-            margin-right: 10px;
-        }
-        
-        nav ul {
-            display: flex;
-            list-style: none;
-        }
-        
-        nav ul li {
-            margin-left: 1.5rem;
-        }
-        
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s;
-            padding: 0.5rem 0;
-            position: relative;
-        }
-        
-        nav ul li a:hover {
-            color: var(--secondary);
-        }
-        
-        nav ul li a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 3px;
-            background-color: var(--secondary);
-            transition: width 0.3s;
-        }
-        
-        nav ul li a:hover::after {
-            width: 100%;
-        }
-        
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(rgba(44, 62, 80, 0.8), rgba(44, 62, 80, 0.8)), url('https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-4.0.3') no-repeat center center/cover;
-            color: white;
-            text-align: center;
-            padding: 5rem 0;
-        }
-        
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
-        }
-        
-        .hero p {
-            font-size: 1.2rem;
-            max-width: 700px;
-            margin: 0 auto 2rem;
-        }
-        
-        .btn {
-            display: inline-block;
-            background-color: var(--secondary);
-            color: white;
-            padding: 0.8rem 2rem;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: all 0.3s;
-            border: none;
-            cursor: pointer;
-        }
-        
-        .btn:hover {
-            background-color: #2980b9;
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-        
-        /* Services Section */
-        .services {
-            padding: 5rem 0;
-            background-color: white;
-        }
-        
-        .section-title {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-        
-        .section-title h2 {
-            font-size: 2.5rem;
-            color: var(--primary);
-            margin-bottom: 1rem;
-            position: relative;
-            display: inline-block;
-        }
-        
-        .section-title h2::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background-color: var(--secondary);
-        }
-        
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-        
-        .service-card {
-            background-color: var(--light);
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            transition: transform 0.3s, box-shadow 0.3s;
-            text-align: center;
-            padding: 2rem;
-        }
-        
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
-        }
-        
-        .service-icon {
-            font-size: 3rem;
-            color: var(--secondary);
-            margin-bottom: 1.5rem;
-        }
-        
-        .service-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: var(--dark);
-        }
-        
-        .service-card p {
-            color: #666;
-        }
-        
-        /* Gallery Section */
-        .gallery {
-            padding: 5rem 0;
-            background-color: #f5f7fa;
-        }
-        
-        .gallery-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-        }
-        
-        .gallery-item {
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            height: 250px;
-            position: relative;
-            cursor: pointer;
-        }
-        
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s;
-        }
-        
-        .gallery-item:hover img {
-            transform: scale(1.1);
-        }
-        
-        .gallery-caption {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            background: linear-gradient(transparent, rgba(0,0,0,0.8));
-            color: white;
-            padding: 1rem;
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
-        
-        .gallery-item:hover .gallery-caption {
-            opacity: 1;
-        }
-        
-        /* Contact Section */
-        .contact {
-            padding: 5rem 0;
-            background-color: white;
-        }
-        
-        .contact-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 3rem;
-        }
-        
-        .contact-info {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-        }
-        
-        .contact-item {
-            display: flex;
-            gap: 1rem;
-            align-items: flex-start;
-        }
-        
-        .contact-icon {
-            font-size: 1.5rem;
-            color: var(--secondary);
-            min-width: 40px;
-        }
-        
-        .contact-text h3 {
-            margin-bottom: 0.5rem;
-            color: var(--dark);
-        }
-        
-        .map {
-            height: 300px;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-        
-        .map iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-        
-        /* Footer */
-        footer {
-            background-color: var(--dark);
-            color: white;
-            padding: 3rem 0 1.5rem;
-        }
-        
-        .footer-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-        
-        .footer-col h3 {
-            font-size: 1.3rem;
-            margin-bottom: 1.5rem;
-            position: relative;
-            padding-bottom: 0.5rem;
-        }
-        
-        .footer-col h3::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 50px;
-            height: 3px;
-            background-color: var(--secondary);
-        }
-        
-        .footer-links {
-            list-style: none;
-        }
-        
-        .footer-links li {
-            margin-bottom: 0.8rem;
-        }
-        
-        .footer-links a {
-            color: #ddd;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        
-        .footer-links a:hover {
-            color: var(--secondary);
-        }
-        
-        .social-links {
-            display: flex;
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-        
-        .social-links a {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            background-color: rgba(255,255,255,0.1);
-            border-radius: 50%;
-            color: white;
-            transition: background-color 0.3s;
-        }
-        
-        .social-links a:hover {
-            background-color: var(--secondary);
-        }
-        
-        .copyright {
-            text-align: center;
-            padding-top: 1.5rem;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            color: #aaa;
-            font-size: 0.9rem;
-        }
-        
-        /* WhatsApp Buzón */
-        #whatsapp-buzon {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: var(--whatsapp);
-            color: white;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            z-index: 1000;
-            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.5);
-            transition: all 0.3s;
-        }
-        
-        #whatsapp-buzon:hover {
-            transform: scale(1.1);
-            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.7);
-        }
-        
-        #whatsapp-buzon i {
-            font-size: 28px;
-        }
-        
-        #whatsapp-form {
-            display: none;
-            position: fixed;
-            bottom: 90px;
-            right: 20px;
-            background: white;
-            padding: 25px;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-            z-index: 1000;
-            width: 350px;
-            max-width: 90%;
-            animation: slideIn 0.3s ease-out;
-        }
-        
-        @keyframes slideIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        #whatsapp-form h3 {
-            margin-top: 0;
-            margin-bottom: 20px;
-            color: #075E54;
-            text-align: center;
-            font-size: 1.4rem;
-        }
-        
-        .form-group {
-            margin-bottom: 15px;
-        }
-        
-        .form-group label {
-            display: block;
-            margin-bottom: 5px;
-            color: #555;
-            font-weight: 500;
-        }
-        
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 12px 15px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            font-size: 1rem;
-            transition: border-color 0.3s;
-        }
-        
-        .form-group input:focus,
-        .form-group textarea:focus {
-            border-color: var(--whatsapp);
-            outline: none;
-            box-shadow: 0 0 0 2px rgba(37, 211, 102, 0.2);
-        }
-        
-        .form-group textarea {
-            min-height: 100px;
-            resize: vertical;
-        }
-        
-        #whatsapp-form button {
-            background: var(--whatsapp);
-            color: white;
-            border: none;
-            padding: 12px 20px;
-            border-radius: 8px;
-            cursor: pointer;
-            font-weight: bold;
-            width: 100%;
-            font-size: 1rem;
-            transition: background 0.3s;
-        }
-        
-        #whatsapp-form button:hover {
-            background: #128C7E;
-        }
-        
-        .form-note {
-            font-size: 0.85rem;
-            color: #777;
-            margin-top: 10px;
-            text-align: center;
-        }
-        
-        .close-btn {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background: none;
-            border: none;
-            font-size: 1.2rem;
-            color: #999;
-            cursor: pointer;
-            transition: color 0.3s;
-        }
-        
-        .close-btn:hover {
-            color: #e74c3c;
-        }
-        
-        /* Responsive */
-        @media (max-width: 768px) {
-            .header-container {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            nav ul {
-                margin-top: 1rem;
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-            
-            nav ul li {
-                margin: 0.5rem;
-            }
-            
-            .hero h1 {
-                font-size: 2.2rem;
-            }
-            
-            .hero p {
-                font-size: 1rem;
-            }
-            
-            #whatsapp-form {
-                right: 10px;
-                left: 10px;
-                width: auto;
-            }
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <div class="container header-container">
-            <div class="logo">
-                <i class="fas fa-globe-americas"></i>
-                <span>Misiones</span>
+    <!-- Header Section -->
+    <header id="inicio">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-container">
+                    <!-- LOGO CUADRADO (sin borde redondeado) -->
+                    <img src="assets/images/logo.svg" alt="RS Broo Logo" class="logo-img" style="border-radius: 0;">
+                    <div class="brand-text">
+                        <h1>RS Broo</h1>
+                        <p>Tecnología y Soluciones</p>
+                    </div>
+                </div>
+                
+                <nav>
+                    <button class="menu-btn" id="menuToggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <ul class="nav-links" id="navLinks">
+                        <li><a href="#inicio">Inicio</a></li>
+                        <li><a href="#catalogo">Catálogo</a></li>
+                        <li><a href="#galeria">Galería</a></li>
+                        <li><a href="#contacto">Contacto</a></li>
+                    </ul>
+                </nav>
             </div>
-            <nav>
-                <ul>
-                    <li><a href="#inicio">Inicio</a></li>
-                    <li><a href="#servicios">Servicios</a></li>
-                    <li><a href="#galeria">Galería</a></li>
-                    <li><a href="#contacto">Contacto</a></li>
-                </ul>
-            </nav>
+            
+            <div class="tagline">
+                <h2>VERSATILIDAD INTEGRAL</h2>
+                <p>El servicio y la atención que necesitas con la garantía que te mereces</p>
+            </div>
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section id="inicio" class="hero">
-        <div class="container">
-            <h1>Soluciones Profesionales para tu Negocio</h1>
-            <p>Ofrecemos servicios de alta calidad que se adaptan a tus necesidades y presupuesto. Transformamos tus ideas en realidad.</p>
-            <a href="#contacto" class="btn">Contáctanos</a>
-        </div>
-    </section>
-
-    <!-- Services Section (Fixed) -->
-    <section id="servicios" class="services">
+    <!-- Catalog Section -->
+    <section class="catalog" id="catalogo">
         <div class="container">
             <div class="section-title">
                 <h2>Nuestros Servicios</h2>
-                <p>Descubre lo que podemos hacer por ti</p>
             </div>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-laptop-code"></i>
-                    </div>
-                    <h3>Desarrollo Web</h3>
-                    <p>Diseño y desarrollo de sitios web modernos, responsivos y optimizados para motores de búsqueda.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-mobile-alt"></i>
-                    </div>
-                    <h3>Aplicaciones Móviles</h3>
-                    <p>Creación de aplicaciones móviles nativas e híbridas para iOS y Android.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                    <h3>Marketing Digital</h3>
-                    <p>Estrategias de marketing online para aumentar tu presencia digital y generar leads.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-paint-brush"></i>
-                    </div>
-                    <h3>Diseño Gráfico</h3>
-                    <p>Soluciones de diseño creativo para branding, identidad corporativa y materiales de marketing.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-search"></i>
-                    </div>
-                    <h3>SEO Optimización</h3>
-                    <p>Mejoramos tu visibilidad en los motores de búsqueda para atraer más tráfico cualificado.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-shield-alt"></i>
-                    </div>
-                    <h3>Seguridad Informática</h3>
-                    <p>Protección de sistemas y datos contra amenazas cibernéticas y vulnerabilidades.</p>
-                </div>
+            
+            <div class="services-grid" id="services-container">
+                <!-- Los servicios se cargan dinámicamente desde app.js -->
             </div>
         </div>
     </section>
 
-    <!-- Gallery Section (Fixed) -->
-    <section id="galeria" class="gallery">
+    <!-- Gallery Section -->
+    <section class="gallery" id="galeria">
         <div class="container">
             <div class="section-title">
-                <h2>Nuestra Galería</h2>
-                <p>Algunos de nuestros trabajos recientes</p>
+                <h2>Nuestro Trabajo</h2>
             </div>
-            <div class="gallery-container">
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Proyecto 1">
-                    <div class="gallery-caption">
-                        <h3>Diseño Web Corporativo</h3>
-                        <p>Plataforma para empresa de tecnología</p>
-                    </div>
+            
+            <div class="collage-container" id="galleryTrigger">
+                <div class="collage">
+                    <div class="collage-item" style="background-image: url('assets/images/img1.webp')"></div>
+                    <div class="collage-item" style="background-image: url('assets/images/img2.webp')"></div>
+                    <div class="collage-item" style="background-image: url('assets/images/img3.webp')"></div>
+                    <div class="collage-item" style="background-image: url('assets/images/img4.webp')"></div>
+                    <div class="collage-item" style="background-image: url('assets/images/img5.webp')"></div>
+                    <div class="collage-item" style="background-image: url('assets/images/img6.webp')"></div>
+                    <div class="collage-item" style="background-image: url('assets/images/img7.webp')"></div>
                 </div>
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Proyecto 2">
-                    <div class="gallery-caption">
-                        <h3>App de Productividad</h3>
-                        <p>Aplicación móvil para gestión de tareas</p>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Proyecto 3">
-                    <div class="gallery-caption">
-                        <h3>E-commerce</h3>
-                        <p>Tienda online para negocio de moda</p>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Proyecto 4">
-                    <div class="gallery-caption">
-                        <h3>Branding Corporativo</h3>
-                        <p>Identidad visual para startup</p>
+                <div class="gallery-overlay">
+                    <div>
+                        <i class="fas fa-expand-alt fa-2x"></i>
+                        <p>Ver Galería Completa</p>
                     </div>
                 </div>
             </div>
@@ -674,53 +83,61 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contacto" class="contact">
+    <section class="contact" id="contacto">
         <div class="container">
             <div class="section-title">
-                <h2>Contacto</h2>
-                <p>¿Listo para comenzar tu proyecto? Contáctanos</p>
+                <h2>Contáctanos</h2>
             </div>
+            
             <div class="contact-container">
                 <div class="contact-info">
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-map-marker-alt"></i>
-                        </div>
-                        <div class="contact-text">
-                            <h3>Ubicación</h3>
-                            <p>Av. Siempre Viva 742, Misiones, Argentina</p>
+                    <div class="contact-card">
+                        <h3>Información de Contacto</h3>
+                        <ul class="contact-details">
+                            <li>
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Buenos Aires 1942, Posadas, Misiones</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-phone-alt"></i>
+                                <span>+54 9 376 4 144012</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-envelope"></i>
+                                <span>brooposadas@gmail.com</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-clock"></i>
+                                <span>Lunes a Viernes: 8:00 - 18:00<br>Sábados: 9:00 - 13:00</span>
+                            </li>
+                        </ul>
+                        
+                        <div class="social-links">
+                            <a href="https://www.facebook.com/share/12DiWC5Xynu/" target="_blank">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="https://www.instagram.com/broomisiones?igsh=YXRzdHVuYjNpYzkw" target="_blank">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="https://wa.me/5493764144012" target="_blank">
+                                <i class="fab fa-whatsapp"></i>
+                            </a>
                         </div>
                     </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-phone-alt"></i>
-                        </div>
-                        <div class="contact-text">
-                            <h3>Teléfono</h3>
-                            <p>+54 3764 123456</p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-envelope"></i>
-                        </div>
-                        <div class="contact-text">
-                            <h3>Email</h3>
-                            <p>info@misionesweb.com</p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-clock"></i>
-                        </div>
-                        <div class="contact-text">
-                            <h3>Horario</h3>
-                            <p>Lunes a Viernes: 9:00 - 18:00</p>
-                        </div>
+                    
+                    <div class="contact-card">
+                        <h3>¿Por qué elegirnos?</h3>
+                        <p>En RS Broo nos comprometemos a ofrecer soluciones integrales con atención personalizada, garantía en todos nuestros servicios y precios competitivos.</p>
                     </div>
                 </div>
-                <div class="map">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14143.405742009025!2d-55.8955311!3d-27.451194!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9457be1478f4d5e1%3A0x1a5d4b1f1d0e3b0e!2sPosadas%2C%20Misiones!5e0!3m2!1ses!2sar!4v1686589951232!5m2!1ses!2sar" allowfullscreen="" loading="lazy"></iframe>
+                
+                <!-- Buzón WhatsApp -->
+                <div class="whatsapp-contact-box">
+                    <h3>¿Necesitas ayuda inmediata?</h3>
+                    <p>Contáctanos directamente por WhatsApp</p>
+                    <a href="https://wa.me/5493764144012" class="btn whatsapp-btn">
+                        <i class="fab fa-whatsapp"></i> Enviar WhatsApp
+                    </a>
                 </div>
             </div>
         </div>
@@ -729,153 +146,69 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <div class="footer-container">
-                <div class="footer-col">
-                    <h3>Misiones Web</h3>
-                    <p>Ofrecemos soluciones digitales de alta calidad para empresas y emprendedores. Transformamos tu visión en realidad digital.</p>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <div class="footer-content">
+                <div class="footer-about">
+                    <div class="footer-logo">
+                        <div class="logo-container">
+                            <img src="assets/images/logo.svg" alt="RS Broo Logo" class="logo-img" style="width: 70px; height: 70px; border-radius: 0;">
+                            <div class="brand-text">
+                                <h1>RS Broo</h1>
+                            </div>
+                        </div>
                     </div>
+                    <p>RS Broo es tu aliado en soluciones tecnológicas en Posadas, Misiones. Ofrecemos servicios técnicos especializados, venta de productos electrónicos y soluciones de seguridad con la más alta calidad.</p>
                 </div>
-                <div class="footer-col">
+                
+                <div class="footer-links">
                     <h3>Enlaces Rápidos</h3>
-                    <ul class="footer-links">
+                    <ul>
                         <li><a href="#inicio">Inicio</a></li>
-                        <li><a href="#servicios">Servicios</a></li>
+                        <li><a href="#catalogo">Catálogo</a></li>
                         <li><a href="#galeria">Galería</a></li>
                         <li><a href="#contacto">Contacto</a></li>
                     </ul>
                 </div>
-                <div class="footer-col">
-                    <h3>Servicios</h3>
-                    <ul class="footer-links">
-                        <li><a href="#">Desarrollo Web</a></li>
-                        <li><a href="#">Aplicaciones Móviles</a></li>
-                        <li><a href="#">Marketing Digital</a></li>
-                        <li><a href="#">Diseño Gráfico</a></li>
-                        <li><a href="#">Consultoría TI</a></li>
-                    </ul>
+                
+                <!-- Mapa en el Footer -->
+                <div class="footer-map">
+                    <h3>Ubicación</h3>
+                    <div class="map-container">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3540.2428813546637!2d-55.89637872434288!3d-27.36285161283515!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9457be664d0a03c9%3A0x1a5d6f5a0e3b5e1f!2sBuenos%20Aires%201942%2C%20Posadas%2C%20Misiones!5e0!3m2!1ses!2sar!4v1620000000000!5m2!1ses!2sar" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
                 </div>
             </div>
-            <div class="copyright">
-                <p>&copy; 2023 Misiones Web. Todos los derechos reservados.</p>
+            
+            <div class="footer-bottom">
+                <p>Gracias por confiar en RS Broo para todas tus necesidades tecnológicas. Estamos comprometidos a ofrecerte soluciones integrales con la más alta calidad y servicio personalizado.</p>
+                <p>&copy; <span id="current-year"></span> RS Broo - Todos los derechos reservados. | Versatilidad Integral en Servicios Técnicos</p>
+                <p>Confía en profesionales que valoran tu satisfacción y seguridad.</p>
             </div>
         </div>
     </footer>
 
-    <!-- WhatsApp Buzón -->
+    <!-- Gallery Modal -->
+    <div class="modal" id="galleryModal">
+        <div class="close-modal" id="closeModal">&times;</div>
+        <div class="modal-content" id="modalContent">
+            <!-- Las imágenes se cargan dinámicamente -->
+        </div>
+    </div>
+
+    <!-- WhatsApp Buzón Flotante -->
     <div id="whatsapp-buzon">
         <i class="fab fa-whatsapp"></i>
     </div>
 
+    <!-- WhatsApp Form -->
     <div id="whatsapp-form">
-        <button class="close-btn" id="close-form">&times;</button>
+        <button id="cerrar-form">&times;</button>
         <h3>Contáctanos por WhatsApp</h3>
-        <div class="form-group">
-            <label for="nombre">Tu Nombre</label>
-            <input type="text" id="nombre" placeholder="Nombre completo">
-        </div>
-        <div class="form-group">
-            <label for="numero">Número de WhatsApp</label>
-            <input type="text" id="numero" placeholder="Ej: 5493764123456">
-        </div>
-        <div class="form-group">
-            <label for="mensaje">Tu Mensaje</label>
-            <textarea id="mensaje" placeholder="¿En qué podemos ayudarte?"></textarea>
-        </div>
-        <button onclick="enviarAWhatsApp()">Enviar Mensaje</button>
-        <p class="form-note">Te contactaremos por WhatsApp en breve</p>
+        <input type="text" id="nombre-wa" placeholder="Tu nombre">
+        <input type="tel" id="numero-wa" placeholder="Ej: 5493764123456">
+        <textarea id="mensaje-wa" placeholder="Tu consulta o pedido"></textarea>
+        <button id="enviar-wa">Enviar Mensaje</button>
     </div>
 
-    <script>
-        // WhatsApp Form Functionality
-        document.getElementById('whatsapp-buzon').addEventListener('click', () => {
-            document.getElementById('whatsapp-form').style.display = 'block';
-        });
-        
-        document.getElementById('close-form').addEventListener('click', () => {
-            document.getElementById('whatsapp-form').style.display = 'none';
-        });
-        
-        // Close form when clicking outside
-        document.addEventListener('click', (e) => {
-            const form = document.getElementById('whatsapp-form');
-            const button = document.getElementById('whatsapp-buzon');
-            
-            if (!form.contains(e.target) {
-                if (e.target !== button && !button.contains(e.target)) {
-                    form.style.display = 'none';
-                }
-            }
-        });
-
-        // Gallery hover effect enhancement
-        document.querySelectorAll('.gallery-item').forEach(item => {
-            item.addEventListener('mouseenter', () => {
-                item.querySelector('.gallery-caption').style.opacity = '1';
-            });
-            
-            item.addEventListener('mouseleave', () => {
-                item.querySelector('.gallery-caption').style.opacity = '0';
-            });
-        });
-
-        // Smooth scrolling for navigation
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    window.scrollTo({
-                        top: target.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-
-        // WhatsApp Form Submission
-        async function enviarAWhatsApp() {
-            const nombre = document.getElementById('nombre').value;
-            let numero = document.getElementById('numero').value.replace(/\D/g, '');
-            const mensaje = document.getElementById('mensaje').value;
-            
-            // Basic validation
-            if (!nombre || !numero || !mensaje) {
-                alert('Por favor, complete todos los campos.');
-                return;
-            }
-            
-            // Format number if needed
-            if (numero.startsWith('0')) {
-                numero = numero.substring(1);
-            }
-            if (!numero.startsWith('54')) {
-                numero = '54' + numero;
-            }
-            
-            // In a real implementation, you would use:
-            // const response = await fetch('URL_DE_TU_GOOGLE_SCRIPT', {
-            //     method: 'POST',
-            //     headers: { 'Content-Type': 'application/json' },
-            //     body: JSON.stringify({ nombre, numero, mensaje })
-            // });
-            
-            // For this demo, we'll simulate a successful submission
-            setTimeout(() => {
-                alert(`¡Gracias ${nombre}! Te contactaremos pronto por WhatsApp al número ${numero}.`);
-                document.getElementById('whatsapp-form').style.display = 'none';
-                
-                // Clear form
-                document.getElementById('nombre').value = '';
-                document.getElementById('numero').value = '';
-                document.getElementById('mensaje').value = '';
-            }, 800);
-        }
-    </script>
+    <script src="scripts/app.js"></script>
 </body>
 </html>
