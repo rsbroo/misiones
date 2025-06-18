@@ -21,7 +21,6 @@
                         <p>Tecnología y Soluciones</p>
                     </div>
                 </div>
-                
                 <nav>
                     <button class="menu-btn" id="menuToggle">
                         <i class="fas fa-bars"></i>
@@ -34,7 +33,6 @@
                     </ul>
                 </nav>
             </div>
-            
             <div class="tagline">
                 <h2>VERSATILIDAD INTEGRAL</h2>
                 <p>El servicio y la atención que necesitas con la garantía que te mereces</p>
@@ -48,7 +46,6 @@
             <div class="section-title">
                 <h2>Nuestros Servicios</h2>
             </div>
-            
             <div class="services-grid" id="services-container">
                 <!-- Los servicios se cargan dinámicamente desde app.js -->
             </div>
@@ -61,7 +58,6 @@
             <div class="section-title">
                 <h2>Nuestro Trabajo</h2>
             </div>
-            
             <div class="collage-container" id="galleryTrigger">
                 <div class="collage">
                     <div class="collage-item" style="background-image: url('assets/images/img1.webp')"></div>
@@ -82,13 +78,32 @@
         </div>
     </section>
 
+    <!-- Comentarios de Clientes -->
+    <section class="comments">
+        <div class="container">
+            <div class="section-title">
+                <h2>Comentarios de Clientes</h2>
+            </div>
+            <div class="comments-container">
+                <div class="comment-form">
+                    <h3>Deja tu comentario</h3>
+                    <input type="text" id="comment-name" placeholder="Tu nombre" required>
+                    <textarea id="comment-text" placeholder="Tu comentario" required></textarea>
+                    <button id="submit-comment">Enviar</button>
+                </div>
+                <div class="comments-list" id="comments-list">
+                    <!-- Comentarios se cargarán aquí -->
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Contact Section -->
     <section class="contact" id="contacto">
         <div class="container">
             <div class="section-title">
                 <h2>Contáctanos</h2>
             </div>
-            
             <div class="contact-container">
                 <div class="contact-info">
                     <div class="contact-card">
@@ -111,7 +126,6 @@
                                 <span>Lunes a Viernes: 8:00 - 18:00<br>Sábados: 9:00 - 13:00</span>
                             </li>
                         </ul>
-                        
                         <div class="social-links">
                             <a href="https://www.facebook.com/share/12DiWC5Xynu/" target="_blank">
                                 <i class="fab fa-facebook-f"></i>
@@ -124,13 +138,11 @@
                             </a>
                         </div>
                     </div>
-                    
                     <div class="contact-card">
                         <h3>¿Por qué elegirnos?</h3>
                         <p>En RS Broo nos comprometemos a ofrecer soluciones integrales con atención personalizada, garantía en todos nuestros servicios y precios competitivos.</p>
                     </div>
                 </div>
-                
                 <!-- Buzón WhatsApp -->
                 <div class="whatsapp-contact-box">
                     <h3>¿Necesitas ayuda inmediata?</h3>
@@ -158,7 +170,6 @@
                     </div>
                     <p>RS Broo es tu aliado en soluciones tecnológicas en Posadas, Misiones. Ofrecemos servicios técnicos especializados, venta de productos electrónicos y soluciones de seguridad con la más alta calidad.</p>
                 </div>
-                
                 <div class="footer-links">
                     <h3>Enlaces Rápidos</h3>
                     <ul>
@@ -168,7 +179,6 @@
                         <li><a href="#contacto">Contacto</a></li>
                     </ul>
                 </div>
-                
                 <!-- Mapa en el Footer -->
                 <div class="footer-map">
                     <h3>Ubicación</h3>
@@ -177,7 +187,6 @@
                     </div>
                 </div>
             </div>
-            
             <div class="footer-bottom">
                 <p>Gracias por confiar en RS Broo para todas tus necesidades tecnológicas. Estamos comprometidos a ofrecerte soluciones integrales con la más alta calidad y servicio personalizado.</p>
                 <p>&copy; <span id="current-year"></span> RS Broo - Todos los derechos reservados. | Versatilidad Integral en Servicios Técnicos</p>
@@ -196,17 +205,16 @@
 
     <!-- WhatsApp Buzón Flotante -->
     <div id="whatsapp-buzon">
-        <i class="fab fa-whatsapp"></i>
+        <span>📩</span> Contáctanos por WhatsApp
     </div>
 
     <!-- WhatsApp Form -->
     <div id="whatsapp-form">
-        <button id="cerrar-form">&times;</button>
-        <h3>Contáctanos por WhatsApp</h3>
-        <input type="text" id="nombre-wa" placeholder="Tu nombre">
-        <input type="tel" id="numero-wa" placeholder="Ej: 5493764123456">
-        <textarea id="mensaje-wa" placeholder="Tu consulta o pedido"></textarea>
-        <button id="enviar-wa">Enviar Mensaje</button>
+        <h3>Contáctanos</h3>
+        <input type="text" id="nombre" placeholder="Tu nombre" required>
+        <input type="tel" id="numero" placeholder="Ej: 5493764123456" required>
+        <textarea id="mensaje" placeholder="Tu mensaje" required></textarea>
+        <button onclick="enviarAWhatsApp()">Enviar</button>
     </div>
 
     <script src="scripts/app.js"></script>
