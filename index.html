@@ -14,7 +14,6 @@
         <div class="container">
             <div class="header-content">
                 <div class="logo-container">
-                    <!-- LOGO CUADRADO (sin borde redondeado) -->
                     <img src="assets/images/logo.svg" alt="RS Broo Logo" class="logo-img" style="border-radius: 0;">
                     <div class="brand-text">
                         <h1>RS Broo</h1>
@@ -32,6 +31,17 @@
                         <li><a href="#contacto">Contacto</a></li>
                     </ul>
                 </nav>
+                <!-- Contador de visitas y botón de like -->
+                <div class="counters">
+                    <div class="counter-item">
+                        <i class="fas fa-eye"></i>
+                        <span id="visits-count">0</span>
+                    </div>
+                    <div class="counter-item" id="like-container">
+                        <i class="fas fa-heart"></i>
+                        <span id="likes-count">0</span>
+                    </div>
+                </div>
             </div>
             <div class="tagline">
                 <h2>VERSATILIDAD INTEGRAL</h2>
@@ -60,6 +70,7 @@
             </div>
             <div class="collage-container" id="galleryTrigger">
                 <div class="collage">
+                    <!-- Se mantienen 7 imágenes para el collage -->
                     <div class="collage-item" style="background-image: url('assets/images/img1.webp')"></div>
                     <div class="collage-item" style="background-image: url('assets/images/img2.webp')"></div>
                     <div class="collage-item" style="background-image: url('assets/images/img3.webp')"></div>
@@ -73,26 +84,6 @@
                         <i class="fas fa-expand-alt fa-2x"></i>
                         <p>Ver Galería Completa</p>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Comentarios de Clientes -->
-    <section class="comments">
-        <div class="container">
-            <div class="section-title">
-                <h2>Comentarios de Clientes</h2>
-            </div>
-            <div class="comments-container">
-                <div class="comment-form">
-                    <h3>Deja tu comentario</h3>
-                    <input type="text" id="comment-name" placeholder="Tu nombre" required>
-                    <textarea id="comment-text" placeholder="Tu comentario" required></textarea>
-                    <button id="submit-comment">Enviar</button>
-                </div>
-                <div class="comments-list" id="comments-list">
-                    <!-- Comentarios se cargarán aquí -->
                 </div>
             </div>
         </div>
@@ -198,23 +189,27 @@
     <!-- Gallery Modal -->
     <div class="modal" id="galleryModal">
         <div class="close-modal" id="closeModal">&times;</div>
-        <div class="modal-content" id="modalContent">
-            <!-- Las imágenes se cargan dinámicamente -->
+        <div class="slider-container">
+            <div class="slides" id="slides"></div>
+            <button class="slider-btn prev-btn">&#10094;</button>
+            <button class="slider-btn next-btn">&#10095;</button>
+            <div class="dots-container" id="dots"></div>
         </div>
     </div>
 
     <!-- WhatsApp Buzón Flotante -->
     <div id="whatsapp-buzon">
-        <span>📩</span> Contáctanos por WhatsApp
+        <i class="fab fa-whatsapp"></i>
     </div>
 
     <!-- WhatsApp Form -->
     <div id="whatsapp-form">
-        <h3>Contáctanos</h3>
-        <input type="text" id="nombre" placeholder="Tu nombre" required>
-        <input type="tel" id="numero" placeholder="Ej: 5493764123456" required>
-        <textarea id="mensaje" placeholder="Tu mensaje" required></textarea>
-        <button onclick="enviarAWhatsApp()">Enviar</button>
+        <button id="cerrar-form">&times;</button>
+        <h3>Contáctanos por WhatsApp</h3>
+        <input type="text" id="nombre-wa" placeholder="Tu nombre">
+        <input type="tel" id="numero-wa" placeholder="Ej: 5493764123456">
+        <textarea id="mensaje-wa" placeholder="Tu consulta o pedido"></textarea>
+        <button id="enviar-wa">Enviar Mensaje</button>
     </div>
 
     <script src="scripts/app.js"></script>
