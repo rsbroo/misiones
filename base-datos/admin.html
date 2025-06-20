@@ -499,13 +499,14 @@ button:hover {
     <div class="form-section">
       <h2 class="section-title"><i class="fas fa-plus-circle"></i> Agregar Nuevo Producto</h2>
       <form id="product-form">
-        <div class="form-group">
-          <label for="categoria"><i class="fas fa-tag"></i> Categoría:</label>
-          <select id="categoria" required>
-            <option value="">Seleccione una categoría</option>
-            <option value="service">Servicio</option>
-            <option value="product">Producto</option>
-          </select>
+          <input type="text" id="nombre" placeholder="Nombre" required>
+          <input type="number" id="precio" placeholder="Precio" required>
+          <input type="url" id="imagen" placeholder="URL Imagen" required>
+          <button type="submit">Agregar Producto</button>
+      </form>
+
+      <script src="scripts/admin-script.js"></script>
+      
         </div>
         <div class="form-group">
           <label for="subcategoria"><i class="fas fa-layer-group"></i> Subcategoría:</label>
